@@ -70,16 +70,13 @@ function criaPedido(nomeCliente, corteId, barbaId) {
 
 
 function atualizarServico(lista, id, valor, tipo) {
-    const array = []
-    const size = lista
     for(let i=0; i<lista.length;i++){
-        array.push({
-            id:id,
-            tipo:tipo,
-            valor:valor
-        })
+        if(id==lista[i].id){
+            lista[i].tipo = tipo;
+            lista[i].valor = valor;
+        }
     }
-    return array
+        return lista
 }
 function calculaTotal(pedido) {
     let total= pedido.pedidoCortePreco + pedido.pedidoBarbaPreco
